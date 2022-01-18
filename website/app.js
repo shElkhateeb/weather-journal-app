@@ -282,7 +282,6 @@ function getCountryCode(country){
             return ',' + key;
         }
     }
-    alert('Country not found!');
 }
 
 // Get temprature from OpenWeatherMap
@@ -292,8 +291,13 @@ const getTemperature = async (baseURL, countryCode, zip, key, units)=>{
     try {
         //Extract weather data object from response body
         const data = await res.json();
-    
-        const temperature = data.main.temp;
+        let temperature;
+        if(data.cod != 404){
+            temperature = data.main.temp;
+        }else{
+            temperature = data.message;
+        }
+        
         return temperature;
     } catch (error) {
         console.log(error);

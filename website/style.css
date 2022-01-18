@@ -53,7 +53,8 @@ label{
     font-size: 27px;
 }
 
-input{
+input,
+select{
     display:block;
     height: 60px;
     width: 320px;
