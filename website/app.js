@@ -265,14 +265,14 @@ let feeling = '';
 let d = new Date();
 let newDate = (d.getMonth() + 1)+'.'+ d.getDate()+'.'+ d.getFullYear();
 
-const dataList = document.getElementById('country-list');
+const countrySelect = document.getElementById('country-list');
 // Fill country list
 function fillCountryList(){
     let options = '';
     for(const [key, value] of Object.entries(countryListAlpha2)){
         options += `<option value="${value}">${value}</option>`;
     }
-    dataList.insertAdjacentHTML('afterbegin', options);
+    countrySelect.insertAdjacentHTML('afterbegin', options);
 }
 
 // Get country code
