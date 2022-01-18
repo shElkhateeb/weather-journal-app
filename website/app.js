@@ -292,6 +292,7 @@ const getTemperature = async (baseURL, countryCode, zip, key, units)=>{
         //Extract weather data object from response body
         const data = await res.json();
         let temperature;
+        //If temperature found
         if(data.cod != 404){
             temperature = data.main.temp;
         }else{
