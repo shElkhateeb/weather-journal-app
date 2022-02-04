@@ -275,6 +275,13 @@ function fillCountryList(){
     countrySelect.insertAdjacentHTML('afterbegin', options);
 }
 
+// Save the user to browser local storage
+function saveUserDataToLOcalStorage(country, zipCode, feeling){
+    localStorage.setItem('Country', country);
+    localStorage.setItem('ZIP Code', zipCode);
+    localStorage.setItem('Feeling', feeling);
+}
+
 // Get country code
 function getCountryCode(country){
     for(const [key, value] of Object.entries(countryListAlpha2)){
@@ -342,6 +349,10 @@ function returnResultToUser(){
     //Check if user entered a 5-digit ZIP Code 
     if(!isNaN(zipCode) && zipCode.length === 5){
         feeling = document.getElementById('feelings').value;
+
+        //Save country, ZIP Code, and feeling to local storage
+        saveUserDataToLOcalStorage(country, zipCode, feeling);
+
         const countryCode = getCountryCode(country);
 
         getTemperature(baseURL, countryCode, zipCode, apiKey, units)
