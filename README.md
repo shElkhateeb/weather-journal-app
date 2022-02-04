@@ -20,6 +20,8 @@ The `website/app.js` file has an event listener to the Generate button and when 
 ### Stackoverflow
 - [How can I check if a string is a valid number?](https://stackoverflow.com/questions/175739/how-can-i-check-if-a-string-is-a-valid-number)
 
+- [How to select a value in a select dropdown with JavaScript?](https://stackoverflow.com/questions/8140862/how-to-select-a-value-in-a-select-dropdown-with-javascript)
+
 ### Developers.SuiteCommerce
 - [Troubleshoot 'Uncaught SyntaxError: Unexpected token u in JSON at position 0'](https://developers.suitecommerce.com/troubleshooting-uncaught-syntaxerror-unexpected-token-u-in-json-at-position-0.html)
 

@@ -266,6 +266,17 @@ let d = new Date();
 let newDate = (d.getMonth() + 1)+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 const countrySelect = document.getElementById('country-list');
+
+
+function setSelectedValue(selectObj, valueToSet) {
+    for (var i = 0; i < selectObj.options.length; i++) {
+        if (selectObj.options[i].text== valueToSet) {
+            selectObj.options[i].selected = true;
+            return;
+        }
+    }
+}
+
 // Fill country list
 function fillCountryList(){
     let options = '';
@@ -273,6 +284,25 @@ function fillCountryList(){
         options += `<option value="${value}">${value}</option>`;
     }
     countrySelect.insertAdjacentHTML('afterbegin', options);
+}
+
+//Get most recent data from local storge and fill input fields
+function getInputFromLocalStorage(){
+    //Country select
+    const lastCountry = localStorage.getItem('Country');
+    if(lastCountry !== null){
+        setSelectedValue(countrySelect, lastCountry);
+    }
+    //ZIP Code
+    const lastZip = localStorage.getItem('ZIP Code');
+    if(lastZip !== null){
+        document.getElementById('zip').setAttribute('value', lastZip);
+    } 
+    //Feeling
+    const lastFeeling = localStorage.getItem('Feeling');
+    if(lastFeeling !== null){
+        document.getElementById('feelings').textContent = lastFeeling;
+    }
 }
 
 // Save the user to browser local storage
@@ -368,6 +398,9 @@ function returnResultToUser(){
 }
 
 fillCountryList();
+
+//Get last entered input from local storage and fill input fields
+getInputFromLocalStorage();
 
 //Listen for a click to "generate" button
 generateButton.addEventListener('click', returnResultToUser);
